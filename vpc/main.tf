@@ -150,6 +150,15 @@ resource "aws_default_network_acl" "defaultACL" {
     from_port  = 0
     to_port    = 0
   }
+    # deny ingress CIDR block - bad actors - Russia
+  ingress {
+    protocol   = "-1"
+    rule_no    = 40
+    action     = "deny"
+    cidr_block = "185.211.245.128/25"
+    from_port  = 0
+    to_port    = 0
+  }
   # allow ingress all traffic
   ingress {
     protocol   = -1
