@@ -132,12 +132,21 @@ resource "aws_default_network_acl" "defaultACL" {
     from_port  = 0
     to_port    = 0
   }
-    # deny ingress CIDR block - bad actors
+  # deny ingress CIDR block - bad actors
   ingress {
     protocol   = "-1"
     rule_no    = 30
     action     = "deny"
     cidr_block = "114.240.0.0/12"
+    from_port  = 0
+    to_port    = 0
+  }
+  # deny ingress CIDR block - bad actors - China
+  ingress {
+    protocol   = "-1"
+    rule_no    = 35
+    action     = "deny"
+    cidr_block = "120.24.0.0/14"
     from_port  = 0
     to_port    = 0
   }
